@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Redirect Mail</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script>
+    Office.onReady(() => {
+      document.getElementById("redirectBtn").onclick = async () => {
+        const item = Office.context.mailbox.item;
+        if (item.itemType === Office.MailboxEnums.ItemType.Message) {
+          // Example: just alerting subject
+          alert("Redirecting mail: " + item.subject);
+          // Use Graph API or EWS to implement real redirect
+        }
+      };
+    });
+  </script>
+</head>
+<body>
+  <h2>Redirect Mail</h2>
+  <button id="redirectBtn">Redirect Mail</button>
+</body>
+</html>
